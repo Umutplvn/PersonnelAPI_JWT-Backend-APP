@@ -88,6 +88,9 @@ app.all('/', (req, res) => {
 // /departments
 app.use('/departments', require('./src/routes/department.router'))
 
+// /auth
+app.use('/login', require('./src/routes/auth.router'))
+
 // /personnels
 app.use('/personnels', require('./src/routes/personnel.router'))
 
