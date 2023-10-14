@@ -10,7 +10,7 @@ const PersonnelSchema = new mongoose.Schema({
 
     departmentId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Department',  //iliski kurulan model ismi
+        ref: 'Department',
         required: true,
     },
 
@@ -25,7 +25,7 @@ const PersonnelSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: true,
-        set: (password) => passwordEncrypt(password),   // helperden cagirdigimiz fonk sayesinde sifreyi encrypt ettik
+        set: (password) => passwordEncrypt(password),
     },
 
     firstName: {
@@ -71,17 +71,17 @@ const PersonnelSchema = new mongoose.Schema({
         default: null
     },
 
-    isActive: {     // personel isten cikti mi calisiyor mu- calismiyorsa sisteme erisemez
+    isActive: {
         type: Boolean,
         default: true,
     },
 
-    isAdmin: {  // tam yetki
+    isAdmin: {
         type: Boolean,
         default: false,
     },
 
-    isLead: {   // sadece kendi departmanina erisebilir
+    isLead: {
         type: Boolean,
         default: false,
     },

@@ -17,11 +17,13 @@ module.exports = {
             detail: await res.getModelListDetails(Department),
             data // data: data
         })
+
     },
 
     create: async (req, res) => {
 
         const data = await Department.create(req.body)
+
         res.status(201).send({
             error: false,
             data
@@ -32,6 +34,7 @@ module.exports = {
     read: async (req, res) => {
 
         const data = await Department.findOne({ _id: req.params.id })
+
         res.status(200).send({
             error: false,
             data
@@ -40,22 +43,23 @@ module.exports = {
     },
 
     update: async (req, res) => {
-        // const data=await Department.find(search).sort().skip().limit() // asagidaki islemle list icin bunlarin tumunu middleware icinde yazmistik 
-        const data = await Department.updateOne({ _id: req.params.id }, req.body) //{filtereleme}, yeni deger
+
+        const data = await Department.updateOne({ _id: req.params.id }, req.body)
+
         res.status(202).send({
             error: false,
-            data, //  data:data
-            new: await Department.findOne({ _id: req.params.id }) //findById de kullanilabilir
+            data,
+            new: await Department.findOne({ _id: req.params.id })
         })
     },
 
     delete: async (req, res) => {
 
-        const data = await Department.deleteOne({ _id: req.params.id }) 
+        const data = await Department.deleteOne({ _id: req.params.id })
 
         res.status(data.deletedCount ? 204 : 404).send({
             error: !data.deletedCount,
-            data //  data:data
+            data
         })
 
         // const isDeleted = data.deletedCount >= 1 ? true : false

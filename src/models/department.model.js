@@ -5,7 +5,7 @@
 const { mongoose } = require('../configs/dbConnection')
 /* ------------------------------------------------------- */
 
-const DepartmentSchema = new mongoose.Schema({ // Bu bir classdan turetilmis bir instancedir
+const DepartmentSchema = new mongoose.Schema({
 
     name: {
         type: String,
